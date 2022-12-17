@@ -5,7 +5,8 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,27 +16,11 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
         setErrors(data)
       }
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
   };
 
   if (user) {
@@ -45,17 +30,26 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+        {errors.map((error, i) => (
+          <div key={i}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>First Name</label>
         <input
           type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
+          name='firstName'
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        ></input>
+      </div>
+      <div className='form-element'>
+        <label>Last Name</label>
+        <input
+          type='text'
+          name='lastName'
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
         ></input>
       </div>
       <div>
@@ -63,7 +57,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='email'
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
           value={email}
         ></input>
       </div>
@@ -72,7 +66,7 @@ const SignUpForm = () => {
         <input
           type='password'
           name='password'
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
           value={password}
         ></input>
       </div>
@@ -81,11 +75,12 @@ const SignUpForm = () => {
         <input
           type='password'
           name='repeat_password'
-          onChange={updateRepeatPassword}
+          onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
           required={true}
         ></input>
       </div>
+      {console.log(firstName, lastName, email, password)}
       <button type='submit'>Sign Up</button>
     </form>
   );
