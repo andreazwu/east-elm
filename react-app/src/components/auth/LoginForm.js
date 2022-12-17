@@ -18,13 +18,13 @@ const LoginForm = () => {
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  const demoUser = async (e) => {
+    e.preventDefault()
+    const data = await dispatch(login("demo@user.io", "dimidue"))
+    if (data) {
+      setErrors(data)
+    }
+  }
 
   if (user) {
     return <Redirect to='/' />;
@@ -44,7 +44,7 @@ const LoginForm = () => {
           type='text'
           placeholder='Email'
           value={email}
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
@@ -54,9 +54,10 @@ const LoginForm = () => {
           type='password'
           placeholder='Password'
           value={password}
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type='submit'>Login</button>
+        <button onClick={demoUser}>DEMO USER</button>
       </div>
     </form>
   );
