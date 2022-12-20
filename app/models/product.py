@@ -19,15 +19,32 @@ class Product(db.Model):
   user = db.relationship("User", back_populates="products")
   images = db.relationship("Image", back_populates="product", cascade="all, delete")
   reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
+  cart_items = db.relationship("Cart_item", back_populates="product", cascade="all, delete")
 
   def to_dict(self):
     return {
       "id": self.id,
-      "seller_id": self.seller_id,
+      "sellerId": self.seller_id,
       "category": self.category,
       "name": self.name,
       "description": self.description,
       "details": self.details,
       "colors": self.colors,
       "price": self.price
+    }
+
+  def to_dict_full(self):
+    return {
+      "id": self.id,
+      "sellerId": self.seller_id,
+      "category": self.category,
+      "name": self.name,
+      "description": self.description,
+      "details": self.details,
+      "colors": self.colors,
+      "price": self.price,
+      "User": self.user.to_dict(),
+      "Images": [image.to_dict() for image in self.images],
+      "Reviews": [review.to_dict() for review in self.reviews],
+      "CartItems": [item.to_dict() for item in self.cart_items]
     }
