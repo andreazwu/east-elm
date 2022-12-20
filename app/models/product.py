@@ -15,8 +15,10 @@ class Product(db.Model):
   colors = db.Column(db.String(100))
   price = db.Column(db.Float(precision=2, asdecimal=False), nullable=False)
 
-  # relationship attributes
+  # relationship
   user = db.relationship("User", back_populates="products")
+  images = db.relationship("Image", back_populates="product", cascade="all, delete")
+  reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
 
   def to_dict(self):
     return {

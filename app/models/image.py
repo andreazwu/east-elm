@@ -10,7 +10,7 @@ class Image(db.Model):
   url = db.Column(db.String(2000), nullable=False)
   product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
 
-  # relationship attributes
+  # relationship
   product = db.relationship("Product", back_populates="images")
 
   def to_dict(self):
@@ -25,5 +25,5 @@ class Image(db.Model):
       "id": self.id,
       "url": self.url,
       "productId": self.product_id,
-      "product": self.product.to_dict()
+      "Product": self.product.to_dict()
     }
