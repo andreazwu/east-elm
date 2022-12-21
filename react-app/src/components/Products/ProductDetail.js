@@ -18,6 +18,17 @@ const ProductDetail = () => {
   return (
     <>
       <div>
+        {product.Reviews && (
+          product.Reviews.map((rev) => (
+            <>
+              <p>{rev.stars}</p>
+              <p>{rev.title}</p>
+              <p>{rev.content}</p>
+            </>
+          ))
+        )}
+      </div>
+      <div>
         {product.Images && (
           product.Images.map((image) => (
               <img key={image.id} src={image.url}
