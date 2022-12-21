@@ -33,6 +33,19 @@ class Product(db.Model):
       "price": self.price
     }
 
+  def to_dict_url (self):
+    return {
+      "id": self.id,
+      "sellerId": self.seller_id,
+      "category": self.category,
+      "name": self.name,
+      "description": self.description,
+      "details": self.details,
+      "colors": self.colors,
+      "price": self.price,
+      "Images": [image.to_dict() for image in self.images],
+    }
+
   def to_dict_full(self):
     return {
       "id": self.id,

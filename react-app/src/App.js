@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute"
 import UsersList from "./components/UsersList"
 import User from "./components/User"
 import SplashPage from "./components/SplashPage"
+import ProductBrowser from "./components/Products/ProductBrowser"
 
 import { authenticate } from "./store/session"
 
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true} >
           <SplashPage />
+        </Route>
+        <Route path="/products" exact={true} >
+          <ProductBrowser />
         </Route>
       </Switch>
     </BrowserRouter>
