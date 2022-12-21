@@ -2,6 +2,7 @@
 const LOAD_ALL_PRODUCTS = "products/loadallproducts"
 const LOAD_ONE_PRODUCT = "products/loadoneproduct"
 const LOAD_MY_PRODUCTS = "products/loadmyproducts"
+const CREATE_PRODUCT = "products/createproduct"
 
 // ACTION CREATORS
 const acLoadAllProducts = (products) => ({
@@ -17,6 +18,11 @@ const acLoadOneProduct = (product) => ({
 const acLoadMyProducts = (products) => ({
   type: LOAD_MY_PRODUCTS,
   products
+})
+
+const acCreateProduct = (product) => ({
+  type: CREATE_PRODUCT,
+  product
 })
 
 // THUNKS
@@ -37,6 +43,10 @@ export const thunkLoadOneProduct = (id) => async (dispatch) => {
     // { id, sellerId, cat, name, desc, details, colors, price,
     // User: {}, Images:[{},{}], Reviews:[{},{}], CartItems:[{},{}] }
     dispatch(acLoadOneProduct(product))
+  } else {
+    const data = await response.json()
+    console.log(data.message)
+    return data.message
   }
 }
 
@@ -50,10 +60,28 @@ export const thunkLoadMyProducts = () => async (dispatch) => {
   }
 }
 
+export const thunkCreateProduct = (product) => async (dispatch) => {
+  const response = await fetch("/api/products", {
+    method: "POST",
+    headers: { "Content-Type": "application/json"},
+    body: JSON.stringify(product)
+  })
+  if (response.ok) {
+    const newproduct = await response.json()
+    // { id, sellerId, cat, name, descp, details(optional), colors(optional), price, Images: [{url}, {url}] }
+    await dispatch(acCreateProduct(newproduct))
+    return newproduct
+  } else {
+    const data = await response.json()
+    return data.errors
+  }
+}
+
 // REDUCER
 const initialState = {
   allProducts: {},
-  singleProduct: {}
+  singleProduct: {},
+  myProducts: {}
 }
 
 const productReducer = (state = initialState, action) => {
@@ -64,18 +92,22 @@ const productReducer = (state = initialState, action) => {
       action.products.Products.forEach((product) => {
         newState.allProducts[product.id] = product
       })
-      newState.singleProduct={}
+      newState.singleProduct = {}
+      newState.myProducts = {}
       return newState
     case LOAD_ONE_PRODUCT:
       newState = {...state}
       newState.singleProduct=action.product
+      newState.allProducts = {}
+      newState.myProducts = {}
       return newState
     case LOAD_MY_PRODUCTS:
       newState = {...state}
       action.products.Products.forEach((product) => {
-        newState.allProducts[product.id] = product
+        newState.myProducts[product.id] = product
       })
-      newState.singleProduct={}
+      newState.allProducts = {}
+      newState.singleProduct = {}
       return newState
     default:
       return state

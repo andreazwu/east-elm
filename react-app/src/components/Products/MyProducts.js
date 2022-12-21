@@ -8,17 +8,33 @@ import "./Products.css"
 const MyProducts = () => {
   const user = useSelector((state) => state.session.user)
   const dispatch = useDispatch()
-  const productsArr = useSelector((state) => Object.values(state.products.allProducts))
+  const productsArr = useSelector((state) => Object.values(state.products.myProducts))
 
   useEffect(() => {
     dispatch(thunkLoadMyProducts())
   }, [dispatch])
 
   if (!user) return <Redirect to="/" />
-  if (!productsArr.length) return null
 
   return (
     <>
+      <div>
+        {
+          productsArr.length === 0 ?
+          (<>
+            <h1>My Products</h1>
+            <h4>You haven't listed any products.</h4>
+          </>) :
+          <h1>My Products</h1>
+        }
+
+        <Link to="/new-product">
+          <button>
+            List a New Product
+          </button>
+        </Link>
+      </div>
+
       {productsArr.map((product) => (
         <div className='product-card' key={product.id}>
           <Link to={`/products/${product.id}`}>

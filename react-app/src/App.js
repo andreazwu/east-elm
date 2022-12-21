@@ -11,6 +11,7 @@ import SplashPage from "./components/SplashPage"
 import ProductBrowser from "./components/Products/ProductBrowser"
 import ProductDetail from "./components/Products/ProductDetail"
 import MyProducts from "./components/Products/MyProducts"
+import CreateProductForm from "./components/Products/CreateProductForm"
 
 import { authenticate } from "./store/session"
 
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/products/:id" exact={true} >
           <ProductDetail />
+        </Route>
+        <Route path="/new-product" exact={true} >
+          <CreateProductForm />
         </Route>
       </Switch>
     </BrowserRouter>
