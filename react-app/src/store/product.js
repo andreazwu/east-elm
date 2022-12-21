@@ -70,11 +70,30 @@ export const thunkCreateProduct = (product) => async (dispatch) => {
     const newproduct = await response.json()
     // { id, sellerId, cat, name, descp, details(optional), colors(optional), price, Images: [{url}, {url}] }
     await dispatch(acCreateProduct(newproduct))
-    return newproduct
-  } else {
+    return null
+  } else if (response.status < 500) {
     const data = await response.json()
+    // {"errors": [ "field: error", " ", " "]}
     return data.errors
+  } else {
+    return ["An error occured. Please try again."]
   }
+
+  // try{
+  //   const response = await fetch("/api/products", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json"},
+  //     body: JSON.stringify(product)
+  //   })
+  //   if (response.ok) {
+  //     const newproduct = await response.json()
+  //     // { id, sellerId, cat, name, descp, details(optional), colors(optional), price, Images: [{url}, {url}] }
+  //     await dispatch(acCreateProduct(newproduct))
+  //     return newproduct
+  //   }
+  // } catch (error) {
+  //   throw error
+  // }
 }
 
 // REDUCER
@@ -108,6 +127,11 @@ const productReducer = (state = initialState, action) => {
       })
       newState.allProducts = {}
       newState.singleProduct = {}
+      return newState
+    case CREATE_PRODUCT:
+      newState = {...state}
+      newState.singleProduct = action.product
+      newState.myProducts[action.product.id] = action.product
       return newState
     default:
       return state

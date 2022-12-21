@@ -38,7 +38,7 @@ def get_my_products():
 
 
 # list a new product
-@product_routes.route("/", methods=["POST"])
+@product_routes.route("", methods=["POST"])
 @login_required
 def create_product():
   form = ProductForm()
@@ -78,4 +78,5 @@ def create_product():
     return data.to_dict_url(), 201
 
   else:
+    # {"errors": [ "field: error", " ", " "]}
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
