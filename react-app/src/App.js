@@ -10,6 +10,7 @@ import User from "./components/User"
 import SplashPage from "./components/SplashPage"
 import ProductBrowser from "./components/Products/ProductBrowser"
 import ProductDetail from "./components/Products/ProductDetail"
+import MyProducts from "./components/Products/MyProducts"
 
 import { authenticate } from "./store/session"
 
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route path="/products" exact={true} >
           <ProductBrowser />
+        </Route>
+        <Route path="/my-products" exact={true} >
+          <MyProducts />
         </Route>
         <Route path="/products/:id" exact={true} >
           <ProductDetail />

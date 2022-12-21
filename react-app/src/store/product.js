@@ -1,6 +1,7 @@
 // ACTION TYPES
 const LOAD_ALL_PRODUCTS = "products/loadallproducts"
 const LOAD_ONE_PRODUCT = "products/loadoneproduct"
+const LOAD_MY_PRODUCTS = "products/loadmyproducts"
 
 // ACTION CREATORS
 const acLoadAllProducts = (products) => ({
@@ -11,6 +12,11 @@ const acLoadAllProducts = (products) => ({
 const acLoadOneProduct = (product) => ({
   type: LOAD_ONE_PRODUCT,
   product
+})
+
+const acLoadMyProducts = (products) => ({
+  type: LOAD_MY_PRODUCTS,
+  products
 })
 
 // THUNKS
@@ -34,6 +40,16 @@ export const thunkLoadOneProduct = (id) => async (dispatch) => {
   }
 }
 
+export const thunkLoadMyProducts = () => async (dispatch) => {
+  const response = await fetch("/api/products/current")
+  if (response.ok) {
+    const products = await response.json()
+    // Products: [{ id, sellerId, cat, name, descp, details, colors, price,
+    // Images: [{url}, {url}]}, {}, {}]
+    dispatch(acLoadMyProducts(products))
+  }
+}
+
 // REDUCER
 const initialState = {
   allProducts: {},
@@ -53,6 +69,13 @@ const productReducer = (state = initialState, action) => {
     case LOAD_ONE_PRODUCT:
       newState = {...state}
       newState.singleProduct=action.product
+      return newState
+    case LOAD_MY_PRODUCTS:
+      newState = {...state}
+      action.products.Products.forEach((product) => {
+        newState.allProducts[product.id] = product
+      })
+      newState.singleProduct={}
       return newState
     default:
       return state
