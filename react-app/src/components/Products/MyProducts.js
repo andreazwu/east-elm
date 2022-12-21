@@ -1,11 +1,12 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { thunkLoadMyProducts } from "../../store/product"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import noimage from "../Images/noimage.jpg"
 import "./Products.css"
 
 const MyProducts = () => {
+  const user = useSelector((state) => state.session.user)
   const dispatch = useDispatch()
   const productsArr = useSelector((state) => Object.values(state.products.allProducts))
 
@@ -13,6 +14,7 @@ const MyProducts = () => {
     dispatch(thunkLoadMyProducts())
   }, [dispatch])
 
+  if (!user) return <Redirect to="/" />
   if (!productsArr.length) return null
 
   return (
