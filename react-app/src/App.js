@@ -10,8 +10,8 @@ import User from "./components/User"
 import SplashPage from "./components/SplashPage"
 import ProductBrowser from "./components/Products/ProductBrowser"
 import ProductDetail from "./components/Products/ProductDetail"
-import MyProducts from "./components/Products/MyProducts"
-import CreateProductForm from "./components/Products/CreateProductForm"
+import MyProducts from "./components/Products/UserProducts/MyProducts"
+import CreateProductForm from "./components/Products/UserProducts/CreateProductForm"
 
 import { authenticate } from "./store/session"
 

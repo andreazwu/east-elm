@@ -82,6 +82,33 @@ def create_product():
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 
+# update a product
+@product_routes.route("/<int:id>", methods=["PUT"])
+@login_required
+def update_product(id):
+  form = ProductForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+  product = Product.query.get(id)
+
+  if product is not None:
+    if product.seller_id != current_user.id:
+      return {"message": f"unauthorized!! you are not the owner of product id {id}"}, 403
+    elif form.validate_on_submit():
+      product.category=form.data["category"],
+      product.name=form.data["name"],
+      product.description=form.data["description"],
+      product.details=form.data["details"],
+      product.colors=form.data["colors"],
+      product.price=form.data["price"]
+      db.session.commit()
+      return product.to_dict_url(), 200
+    else:
+      # {"errors": [ "field: error", " ", " "]}
+      return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+  else:
+    return {"message": f"product id {id} could not be found"}, 404
+
+
 # delete a product
 @product_routes.route("/<int:id>", methods=["DELETE"])
 @login_required

@@ -20,7 +20,7 @@ class ProductForm(FlaskForm):
     extension_ok = url_array[-1] in ALLOWED_EXTENSIONS
     scheme_ok = url_array[0].rsplit("://")[0] in ALLOWED_SCHEMES
     if url and not (extension_ok and scheme_ok):
-      raise ValidationError("Must provide valid image url ending with .jpg .jpeg or .png")
+      raise ValidationError("Must provide valid http:// or https:// image url that ends with .jpg .jpeg or .png")
 
   category = SelectField("category", choices=CATEGORIES, validators=[DataRequired()])
   name = StringField("name", validators=[DataRequired("Name is required"), Length(min=1, max=99, message="Name must be fewer than 100 characters")])

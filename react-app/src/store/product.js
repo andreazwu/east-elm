@@ -3,6 +3,7 @@ const LOAD_ALL_PRODUCTS = "products/loadallproducts"
 const LOAD_ONE_PRODUCT = "products/loadoneproduct"
 const LOAD_MY_PRODUCTS = "products/loadmyproducts"
 const CREATE_PRODUCT = "products/createproduct"
+const UPDATE_PRODUCT = "products/updateproduct"
 const DELETE_PRODUCT = "products/deleteproduct"
 
 // ACTION CREATORS
@@ -23,6 +24,11 @@ const acLoadMyProducts = (products) => ({
 
 const acCreateProduct = (product) => ({
   type: CREATE_PRODUCT,
+  product
+})
+
+const acUpdateProduct = (product) => ({
+  type: UPDATE_PRODUCT,
   product
 })
 
@@ -101,6 +107,27 @@ export const thunkCreateProduct = (product) => async (dispatch) => {
   // }
 }
 
+export const thunkUpdateProduct = (productid, product) => async (dispatch) => {
+  const response = await fetch(`/api/products/${productid}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json"},
+    body: JSON.stringify(product)
+  })
+  if (response.ok) {
+    const editproduct = await response.json()
+    // { id, sellerId, cat, name, descp, details(optional), colors(optional), price, Images: [{url}, {url}] }
+    await dispatch(acUpdateProduct(editproduct))
+    return null
+  } else if (response.status < 500) {
+    const data = await response.json()
+    // {"errors": [ "field: error", " ", " "]}
+    // {"message": product not found/ unauthorized}
+    return data
+  } else {
+    return ["An error occured. Please try again."]
+  }
+}
+
 export const thunkDeleteProduct = (productid) => async (dispatch) => {
   const response = await fetch(`/api/products/${productid}`, {
     method: "DELETE"
@@ -150,6 +177,11 @@ const productReducer = (state = initialState, action) => {
       newState.singleProduct = {}
       return newState
     case CREATE_PRODUCT:
+      newState = {...state}
+      newState.singleProduct = action.product
+      newState.myProducts[action.product.id] = action.product
+      return newState
+    case UPDATE_PRODUCT:
       newState = {...state}
       newState.singleProduct = action.product
       newState.myProducts[action.product.id] = action.product

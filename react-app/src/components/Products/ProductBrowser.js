@@ -32,7 +32,7 @@ const ProductBrowser = () => {
             <Link to={`/products/${product.id}`}>
                 <p className='product-card-name'>{product.name}</p>
             </Link>
-            <p className='product-card-price'>${product.price}</p>
+            <p className='product-card-price'>${Number(product.price).toFixed(2)}</p>
             <p className='product-card-free-shipping'>Free Shipping</p>
           </div>
         </div>

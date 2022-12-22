@@ -39,7 +39,7 @@ const ProductDetail = () => {
       </div>
 
       <div>{product.name}</div>
-      <div>{product.price}</div>
+      <div>${Number(product.price).toFixed(2)}</div>
       <div>{product.description}</div>
       <div>
         {product.details && (
