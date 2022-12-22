@@ -20,11 +20,11 @@ const ProductDetail = () => {
       <div>
         {product.Reviews && (
           product.Reviews.map((rev) => (
-            <>
+            <div key={rev.id}>
               <p>{rev.stars}</p>
               <p>{rev.title}</p>
               <p>{rev.content}</p>
-            </>
+            </div>
           ))
         )}
       </div>
@@ -39,7 +39,7 @@ const ProductDetail = () => {
       </div>
 
       <div>{product.name}</div>
-      <div>{product.price}</div>
+      <div>${Number(product.price).toFixed(2)}</div>
       <div>{product.description}</div>
       <div>
         {product.details && (
