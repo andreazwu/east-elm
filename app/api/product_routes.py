@@ -89,30 +89,23 @@ def update_product(id):
   form = ProductForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
   product = Product.query.get(id)
-  print(f"----------1. product: {product.__dict__}-------------")
 
   if product is not None:
     if product.seller_id != current_user.id:
-      print(f"----------2. BAD, not the seller -------------")
-
       return {"message": f"unauthorized!! you are not the owner of product id {id}"}, 403
     elif form.validate_on_submit():
-      print(f"----------3. GOOD, begin: form validate on submit -------------")
-      product.category=form.data["category"],
-      product.name=form.data["name"],
-      product.description=form.data["description"],
-      product.details=form.data["details"],
-      product.colors=form.data["colors"],
+      product.category=form.data["category"]
+      product.name=form.data["name"]
+      product.description=form.data["description"]
+      product.details=form.data["details"]
+      product.colors=form.data["colors"]
       product.price=form.data["price"]
-      print(f"----------3. GOOD, end: product: {product.__dict__} -------------")
       db.session.commit()
       return product.to_dict_url(), 200
     else:
-      print(f"----------4. BAD, form NOT validate on submit -------------")
       # {"errors": [ "field: error", " ", " "]}
       return {"errors": validation_errors_to_error_messages(form.errors)}, 400
   else:
-    print(f"----------5. BAD, product {id} not found -------------")
     return {"message": f"product id {id} could not be found"}, 404
 
 
