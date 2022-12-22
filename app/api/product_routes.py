@@ -24,7 +24,7 @@ def get_one_product(id):
   if product is not None:
     return product.to_dict_full(), 200
   else:
-    return {"errors": [f"product id {id} could not be found"]}, 404
+    return {"message": f"product id {id} could not be found"}, 404
 
 
 # return all products listed by the current user

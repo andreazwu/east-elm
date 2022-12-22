@@ -39,5 +39,5 @@ class Review(db.Model):
             "stars": self.stars,
             "createdAt": self.created_at,
             "User": self.user.to_dict(),
-            "Product": self.product.to_dict()
+            "Product": self.product.to_dict_url()
     }
