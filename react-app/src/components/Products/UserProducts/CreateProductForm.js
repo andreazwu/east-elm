@@ -31,12 +31,6 @@ const CreateProductForm = () => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    const errorsArr = []
-    if (!url1) errorsArr.push("Please enter at least one valid image url")
-    if (url1 && !url1?.includes("https://") && !url1?.toLowerCase().endsWith(".jpg"||".jpeg"||".png")) errorsArr.push("Must provide valid image url ending with .jpg/ .jpeg/ .png")
-
-    setErrors(errorsArr)
-
     const productinfo = {
       category, name, description, price,
       details: "Eligible for free shipping",
@@ -61,7 +55,7 @@ const CreateProductForm = () => {
     setDescription("")
     // setDetails("Eligible for free shipping")
     // setColors("Neutrals")
-    setPrice(100)
+    setPrice(100.00)
     setUrl1("")
     setUrl2("")
     setUrl3("")

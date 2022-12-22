@@ -122,7 +122,7 @@ export const thunkUpdateProduct = (productid, product) => async (dispatch) => {
     const data = await response.json()
     // {"errors": [ "field: error", " ", " "]}
     // {"message": product not found/ unauthorized}
-    return data
+    return data.errors
   } else {
     return ["An error occured. Please try again."]
   }
