@@ -34,7 +34,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
     const response = await dispatch(thunkUpdateProduct(product.id, productinfo))
     if (response) setErrors(response)
     else {
-      setErrors([])
+      reset()
       setShowEditModal(false)
     }
   }
@@ -50,6 +50,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
     // setUrl2("")
     // setUrl3("")
     // setUrl4("")
+    setErrors([])
     setHasSubmitted(false)
   }
 

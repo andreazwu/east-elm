@@ -92,7 +92,7 @@ export const thunkEditReview = (reviewId, myreview) => async (dispatch) => {
   if (response.ok) {
     const review = await response.json()
     dispatch(acUpdateReview(review))
-    return review
+    return null
   } else if (response.status < 500) {
     const data = await response.json()
     // {"errors": [ "field: error", " ", " "]}

@@ -1,3 +1,25 @@
+/* ---------Hover Stars--------- */
+input[type="radio"]{
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  margin-right: 1px;
+
+}
+
+.prod-star {
+  margin-bottom: -3px;
+}
+
+.stars-wrapper {
+  margin-left: 5px;
+  margin-top: -12px;
+}
+
+/* --------------------------- */
 .review-image {
   width: 100%;
   height: auto;
@@ -118,9 +140,11 @@
   padding: 10px 15px;
 }
 .myreview-stars {
-  color: gray;
   padding: 0px 15px;
   /* margin-top: 0px; */
+}
+.star-gray {
+  color: rgb(228, 228, 228);
 }
 .myreview-content {
   font-size: 16px;
@@ -134,7 +158,8 @@
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 28px;
   align-items: center;
   gap: 1rem;
 }

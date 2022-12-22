@@ -28,7 +28,10 @@ const MyReview = ({ review }) => {
         </Link>
         <div className="myreview-stars">
           {
-            [...Array(review.stars)].map((star) => (<i className="fa-solid fa-star"></i>))
+            [...Array(review.stars)].map((star, i) => (<i className="fa-solid fa-star" key={i}></i>))
+          }
+          {
+            [...Array(5-Number(review.stars))].map((star, i) => (<i className="fa-solid fa-star star-gray" key={i}></i>))
           }
         </div>
         <div className="myreview-content">{review.content}</div>

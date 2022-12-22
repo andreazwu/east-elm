@@ -22,9 +22,9 @@ const MyReviews = () => {
       <div className="myreviews-title-wrapper">
         <div className="myreviews-title">
           <h2>My Reviews</h2>
-          <Link to="/new-review">
+          <Link to="/my-orders">
             <button className="myreviews-list-button">
-              LEAVE A NEW REVIEW
+              LEAVE A NEW REVIEW (my orders)
             </button>
           </Link>
         </div>
