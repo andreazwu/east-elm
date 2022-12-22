@@ -1,8 +1,9 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Product, Image
-from app.forms import ProductForm
+from app.models import db, Product, Image, Review
+from app.forms import ProductForm, ReviewForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from datetime import datetime
 
 product_routes=Blueprint("products", __name__)
 
@@ -23,7 +24,7 @@ def get_one_product(id):
   if product is not None:
     return product.to_dict_full(), 200
   else:
-    return {"message": f"product id {id} could not be found"}, 404
+    return {"errors": [f"product id {id} could not be found"]}, 404
 
 
 # return all products listed by the current user
@@ -92,7 +93,7 @@ def update_product(id):
 
   if product is not None:
     if product.seller_id != current_user.id:
-      return {"message": f"unauthorized!! you are not the owner of product id {id}"}, 403
+      return {"errors": [f"unauthorized!! you are not the owner of product id {id}"]}, 403
     elif form.validate_on_submit():
       product.category=form.data["category"]
       product.name=form.data["name"]
@@ -106,7 +107,7 @@ def update_product(id):
       # {"errors": [ "field: error", " ", " "]}
       return {"errors": validation_errors_to_error_messages(form.errors)}, 400
   else:
-    return {"message": f"product id {id} could not be found"}, 404
+    return {"errors": [f"product id {id} could not be found"]}, 404
 
 
 # delete a product
@@ -124,3 +125,52 @@ def delete_product(id):
       return {"message": f"unauthorized!! you are not the owner of product id {id}"}, 403
   else:
     return {"message": f"product id {id} could not be found"}, 404
+
+
+# -----------------------------------------
+# return all reviews for a specific product
+@product_routes.route("/<int:id>")
+def get_product_reviews(id):
+  product = Product.query.get(id)
+
+  if product is not None:
+    product_reviews = Review.query.filter(Review.product_id == id).all()
+    if product_reviews is not None:
+      return {"Reviews": [review.to_dict_full() for review in product_reviews]}, 200
+  else:
+    return {"errors": [f"product id {id} could not be found"]}, 404
+
+# add new review for a specific product
+@product_routes.route("/<int:id>", methods=["POST"])
+@login_required
+def create_review(id):
+  form = ReviewForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+  product = Product.query.get(id)
+
+  if product is None:
+    return {"errors": [f"product id {id} could not be found"]}, 404
+
+  if product.seller_id == current_user.id:
+    return {"errors": ["you cannot review your own product"]} , 400
+
+  product_reviews = Review.query.filter(Review.product_id == id).all()
+  if product_reviews is not None:
+    for review in product_reviews:
+      if review.user_id == current_user.id:
+        return {"errors": [f"you have already left a review {review.id} for this product id {id}"]}, 400
+
+  if form.validate_on_submit():
+    data = Review(
+      user_id = current_user.id,
+      product_id = id,
+      stars = form.data["stars"],
+      title = form.data["title"],
+      content = form.data["content"],
+      created_at = datetime.now()
+    )
+    db.session.add(data)
+    db.session.commit()
+    return data.to_dict_full(), 201
+  else:
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 400

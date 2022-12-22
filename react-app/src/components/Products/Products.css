@@ -43,6 +43,10 @@
   padding-top: 10px;
 }
 
+.myproducts-title h2 {
+  padding-left: 10px;
+}
+
 .myproducts-list-button {
   text-decoration: none;
   height: 40px;
@@ -92,13 +96,16 @@
 }
 
 .myproduct-img {
-  width: 23%;
-  margin: 0 15px 0 0;
+  width: 200px;
+  height: 180px;
+  /* margin: 0 15px 0 0; */
+  overflow: hidden;
 }
 
 .myproduct-img img {
   width: 100%;
   height: auto;
+
 }
 
 .myproduct-info {
@@ -106,6 +113,7 @@
   height: auto;
   max-height: 100%;
   font-size: 16px;
+  padding-left: 15px;
 }
 .myproduct-info a {
   text-decoration: none;

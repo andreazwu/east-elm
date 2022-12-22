@@ -14,8 +14,8 @@ const NavBar = () => {
       <ul>
         <li><Link to={`/users/${user.id}`}>My Account</Link></li>
         <li><Link to={"/my-products"}>My Products</Link></li>
-        {/* <li><Link to={"/my-orders"}>My Orders</Link></li>
-        <li><Link to={"/my-reviews"}>My Reviews</Link></li> */}
+        {/* <li><Link to={"/my-orders"}>My Orders</Link></li> */}
+        <li><Link to={"/my-reviews"}>My Reviews</Link></li>
         <li><LogoutButton /></li>
       </ul>
     )

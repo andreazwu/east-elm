@@ -13,7 +13,7 @@ const MyProducts = () => {
 
   useEffect(() => {
     dispatch(thunkLoadMyProducts())
-  }, [dispatch])
+  }, [dispatch, productsArr.length])
 
   if (!user) return <Redirect to="/" />
 
@@ -35,7 +35,7 @@ const MyProducts = () => {
         <div className="myproduct-list">
           {productsArr.length > 0 && (
             productsArr.reverse().map(product => (
-              <MyProduct product={product} />
+              <MyProduct key={product.id} product={product} />
             ))
           )}
           {productsArr.length === 0 && (
