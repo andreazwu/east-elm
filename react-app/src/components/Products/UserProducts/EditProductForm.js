@@ -12,10 +12,10 @@ const EditProductForm = ({ product, setShowEditModal }) => {
   const [details, setDetails] = useState(product.details)
   const [colors, setColors] = useState(product.colors)
   const [price, setPrice] = useState(product.price)
-  const [url1, setUrl1] = useState(product.Images[0].url)
-  const [url2, setUrl2] = useState(product.Images[1] ? product.Images[1].url : "")
-  const [url3, setUrl3] = useState(product.Images[2] ? product.Images[2].url : "")
-  const [url4, setUrl4] = useState(product.Images[3] ? product.Images[3].url : "")
+  // const [url1, setUrl1] = useState(product.Images[0].url)
+  // const [url2, setUrl2] = useState(product.Images[1] ? product.Images[1].url : "")
+  // const [url3, setUrl3] = useState(product.Images[2] ? product.Images[2].url : "")
+  // const [url4, setUrl4] = useState(product.Images[3] ? product.Images[3].url : "")
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -25,10 +25,10 @@ const EditProductForm = ({ product, setShowEditModal }) => {
 
     const productinfo = {
       category, name, description, price, details, colors,
-      url1: url1.trim(),
-      url2: url2.trim(),
-      url3: url3.trim(),
-      url4: url4.trim()
+      url1: product.Images[0].url,
+      // url2: product.Images[1].url,
+      // url3: product.Images[2].url,
+      // url4: product.Images[3].url
     }
 
     const response = await dispatch(thunkUpdateProduct(product.id, productinfo))
@@ -46,10 +46,10 @@ const EditProductForm = ({ product, setShowEditModal }) => {
     setDetails("Eligible for free shipping")
     setColors("Neutrals")
     setPrice(100.00)
-    setUrl1("")
-    setUrl2("")
-    setUrl3("")
-    setUrl4("")
+    // setUrl1("")
+    // setUrl2("")
+    // setUrl3("")
+    // setUrl4("")
     setHasSubmitted(false)
   }
 
@@ -135,7 +135,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        {/* <div className="product-form-element">
           <label> Image 1
             <input className='addImage-input'
                 type="text"
@@ -173,7 +173,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
                 onChange={(e) => setUrl4(e.target.value)}
             />
           </label>
-        </div>
+        </div> */}
 
         <button className="product-form-btn" type="submit">EDIT PRODUCT</button>
       </form>
