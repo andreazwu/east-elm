@@ -3,6 +3,7 @@ const LOAD_ALL_PRODUCTS = "products/loadallproducts"
 const LOAD_ONE_PRODUCT = "products/loadoneproduct"
 const LOAD_MY_PRODUCTS = "products/loadmyproducts"
 const CREATE_PRODUCT = "products/createproduct"
+const DELETE_PRODUCT = "products/deleteproduct"
 
 // ACTION CREATORS
 const acLoadAllProducts = (products) => ({
@@ -23,6 +24,11 @@ const acLoadMyProducts = (products) => ({
 const acCreateProduct = (product) => ({
   type: CREATE_PRODUCT,
   product
+})
+
+const acDeleteProduct = (productid) => ({
+  type: DELETE_PRODUCT,
+  productid
 })
 
 // THUNKS
@@ -87,13 +93,28 @@ export const thunkCreateProduct = (product) => async (dispatch) => {
   //   })
   //   if (response.ok) {
   //     const newproduct = await response.json()
-  //     // { id, sellerId, cat, name, descp, details(optional), colors(optional), price, Images: [{url}, {url}] }
   //     await dispatch(acCreateProduct(newproduct))
   //     return newproduct
   //   }
   // } catch (error) {
   //   throw error
   // }
+}
+
+export const thunkDeleteProduct = (productid) => async (dispatch) => {
+  const response = await fetch(`/api/products/${productid}`, {
+    method: "DELETE"
+  })
+  if (response.ok) {
+    const data = await response.json()
+    dispatch(acDeleteProduct(productid))
+    console.log(data.message)
+    return data.message
+  } else {
+    const data = await response.json()
+    console.log(data.message)
+    return data.message
+  }
 }
 
 // REDUCER
@@ -133,6 +154,13 @@ const productReducer = (state = initialState, action) => {
       newState.singleProduct = action.product
       newState.myProducts[action.product.id] = action.product
       return newState
+    case DELETE_PRODUCT:
+      newState = {...state, allProducts:{...state.allProducts}, myProducts:{...state.myProducts}, singleProduct:{...state.singleProduct}}
+      delete newState.allProducts[action.productid]
+      delete newState.myProducts[action.productid]
+      if (newState.singleProduct.id === action.productid) newState.singleProduct = {}
+      return newState
+
     default:
       return state
   }

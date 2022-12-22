@@ -23,7 +23,7 @@ def get_one_product(id):
   if product is not None:
     return product.to_dict_full(), 200
   else:
-    return {"message": f"product with the id of {id} could not be found"}, 404
+    return {"message": f"product id {id} could not be found"}, 404
 
 
 # return all products listed by the current user
@@ -37,7 +37,7 @@ def get_my_products():
     return {"Products": [product.to_dict_url() for product in products]}, 200
 
 
-# list a new product
+# create a new product
 @product_routes.route("", methods=["POST"])
 @login_required
 def create_product():
@@ -80,3 +80,20 @@ def create_product():
   else:
     # {"errors": [ "field: error", " ", " "]}
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+
+
+# delete a product
+@product_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_product(id):
+  product = Product.query.get(id)
+
+  if product is not None:
+    if product.seller_id == current_user.id:
+      db.session.delete(product)
+      db.session.commit()
+      return {"message": f"successfully deleted product id {id}"}, 200
+    else:
+      return {"message": f"unauthorized!! you are not the owner of product id {id}"}, 403
+  else:
+    return {"message": f"product id {id} could not be found"}, 404
