@@ -129,7 +129,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
           <label>Details
             {/* <span className="required">(required)</span> */}
             <textarea
-                placeholder="Separate bulletin points by periods '.'"
+                placeholder='Optional. Separate bullet points by a single period "."'
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
             />
