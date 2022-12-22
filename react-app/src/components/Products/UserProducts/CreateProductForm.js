@@ -13,7 +13,7 @@ const CreateProductForm = () => {
   const [description, setDescription] = useState("")
   // const [details, setDetails] = useState("Eligible for free shipping")
   // const [colors, setColors] = useState("Neutrals")
-  const [price, setPrice] = useState(100)
+  const [price, setPrice] = useState(100.00)
   const [url1, setUrl1] = useState("")
   const [url2, setUrl2] = useState("")
   const [url3, setUrl3] = useState("")

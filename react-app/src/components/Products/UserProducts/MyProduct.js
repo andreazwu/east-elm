@@ -37,7 +37,7 @@ const MyProduct = ({ product }) => {
         <div>
         {showEditModal && (
           <Modal onClose={()=>setShowEditModal(false)}>
-            <DeleteProductAlert
+            <EditProductForm
               setShowEditModal={setShowEditModal}
               product={product}
             />
