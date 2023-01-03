@@ -67,7 +67,7 @@ const ProductDetail = () => {
       </div>
       <div>
         {reviewsArr.length > 0 && (
-          reviewsArr.map((rev) => (
+          reviewsArr.reverse().map((rev) => (
             <div key={rev.id}>
               <p>{rev.User.firstName} {rev.User.lastName}</p>
               <p>{rev.stars}</p>
