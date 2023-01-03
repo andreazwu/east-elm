@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useParams } from "react-router-dom"
 import { thunkLoadOneProduct } from "../../store/product"
 import { thunkGetProductReviews } from "../../store/review"
+import { Modal } from "../../context/Modal"
+import CreateReviewForm from "../Reviews/UserReviews/CreateReviewForm"
 import noimage from "../Images/noimage.jpg"
 
 const ProductDetail = () => {
@@ -14,6 +16,8 @@ const ProductDetail = () => {
   const reviewsArr = useSelector((state) => Object.values(state.reviews.product))
   console.log("reviewsArr from useSelector:", reviewsArr)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [showAddReviewModal, setShowAddReviewModal] = useState(false)
+
 
   let seller = false
   if (user?.id === product?.sellerId) seller = true
@@ -42,10 +46,24 @@ const ProductDetail = () => {
           {
           user &&
           !seller &&
-          !hasReviewed &&
-          <button>can leave review</button>
-
-          }
+          !hasReviewed && (
+            <>
+            <button className="create-review-button"
+            onClick={()=>setShowAddReviewModal(true)}>
+              can leave review
+            </button>
+            <div>
+            {showAddReviewModal && (
+              <Modal onClose={()=>setShowAddReviewModal(false)}>
+                <CreateReviewForm
+                  setShowAddReviewModal={setShowAddReviewModal}
+                  productId={id}
+                />
+              </Modal>
+            )}
+            </div>
+            </>
+          )}
       </div>
       <div>
         {reviewsArr.length > 0 && (

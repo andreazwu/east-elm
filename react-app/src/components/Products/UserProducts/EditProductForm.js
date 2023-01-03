@@ -1,4 +1,4 @@
-import React, { useState, useSelector, useEffect } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { thunkUpdateProduct } from "../../../store/product"
 
