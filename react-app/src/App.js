@@ -13,6 +13,7 @@ import ProductDetail from "./components/Products/ProductDetail"
 import MyProducts from "./components/Products/UserProducts/MyProducts"
 import CreateProductForm from "./components/Products/UserProducts/CreateProductForm"
 import MyReviews from "./components/Reviews/UserReviews/MyReviews"
+import PageNotFound from "./components/PageNotFound"
 
 import { authenticate } from "./store/session"
 
@@ -64,6 +65,9 @@ function App() {
         </Route>
         <Route path="/my-reviews" exact={true} >
           <MyReviews />
+        </Route>
+        <Route>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>

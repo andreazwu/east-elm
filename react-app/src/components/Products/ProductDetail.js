@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Redirect, useParams } from "react-router-dom"
 import { thunkLoadOneProduct } from "../../store/product"
 import noimage from "../Images/noimage.jpg"
 
@@ -8,16 +8,21 @@ const ProductDetail = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
   const product = useSelector((state) => state.products.singleProduct)
+  // console.log("this is the useSelector product:", product)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     dispatch(thunkLoadOneProduct(id))
+      .then(()=>setIsLoaded(true))
   }, [dispatch, id])
 
-  if (!product) return null
+  if (isLoaded && !Object.values(product).length) {
+    return <Redirect to="/pagenotfound" />
+  }
 
   return (
     <>
-      <div>
+      {/* <div>
         {product.Reviews && (
           product.Reviews.map((rev) => (
             <div key={rev.id}>
@@ -27,7 +32,7 @@ const ProductDetail = () => {
             </div>
           ))
         )}
-      </div>
+      </div> */}
       <div>
         {product.Images && (
           product.Images.map((image) => (
