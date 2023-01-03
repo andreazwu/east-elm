@@ -44,6 +44,7 @@ const acDeleteReview = (reviewId) => {
 
 // THUNK ACs:
 export const thunkGetProductReviews = (ProductId) => async (dispatch) => {
+  console.log("get product review thunk begins")
   const response = await fetch(`/api/products/${ProductId}/reviews`)
   if (response.ok) {
     // {"Reviews": [ {id, userId, productId, stars, title, content, createdAt, User: {xxx}, Product: {xxx}}, {}, {} ] }

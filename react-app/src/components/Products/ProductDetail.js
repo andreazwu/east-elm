@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useParams } from "react-router-dom"
 import { thunkLoadOneProduct } from "../../store/product"
+import { thunkGetProductReviews } from "../../store/review"
 import noimage from "../Images/noimage.jpg"
 
 const ProductDetail = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
   const product = useSelector((state) => state.products.singleProduct)
-  // console.log("this is the useSelector product:", product)
+  const reviewsArr = useSelector((state) => Object.values(state.reviews.product))
+  console.log("reviews from useSelector:", reviewsArr)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     dispatch(thunkLoadOneProduct(id))
-      .then(()=>setIsLoaded(true))
+      .then(() => dispatch(thunkGetProductReviews(id)))
+      .then(() => setIsLoaded(true))
   }, [dispatch, id])
 
   if (isLoaded && !Object.values(product).length) {
@@ -33,6 +36,18 @@ const ProductDetail = () => {
           ))
         )}
       </div> */}
+      <div>
+        {reviewsArr.length > 0 && (
+          reviewsArr.map((rev) => (
+            <div key={rev.id}>
+              <p>{rev.User.firstName} {rev.User.lastName}</p>
+              <p>{rev.stars}</p>
+              <p>{rev.title}</p>
+              <p>{rev.content}</p>
+            </div>
+          ))
+        )}
+      </div>
       <div>
         {product.Images && (
           product.Images.map((image) => (

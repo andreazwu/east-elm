@@ -129,7 +129,7 @@ def delete_product(id):
 
 # -----------------------------------------
 # return all reviews for a specific product
-@product_routes.route("/<int:id>")
+@product_routes.route("/<int:id>/reviews")
 def get_product_reviews(id):
   product = Product.query.get(id)
 
