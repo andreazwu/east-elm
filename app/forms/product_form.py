@@ -23,9 +23,9 @@ class ProductForm(FlaskForm):
       raise ValidationError("Must provide valid http:// or https:// image url that ends with .jpg .jpeg or .png")
 
   category = SelectField("category", choices=CATEGORIES, validators=[DataRequired()])
-  name = StringField("name", validators=[DataRequired("Name is required"), Length(min=1, max=99, message="Name must be fewer than 100 characters")])
+  name = StringField("name", validators=[DataRequired("Name is required"), Length(min=1, max=79, message="Name must be fewer than 80 characters")])
   description = TextAreaField("description", validators=[DataRequired("Description is required"), Length(min=1, max=999, message="Description must be fewer than 1000 characters")])
-  price = DecimalField("price", places=2, validators=[InputRequired("Price is required"), NumberRange(min=0.01, max=999999, message="Price must be less than $1,000,000")])
+  price = DecimalField("price", places=2, validators=[InputRequired("Price is required"), NumberRange(min=0.01, max=9999, message="Price must be less than $1,0,000")])
 
   url1 = StringField("url1", validators=[DataRequired("Please upload at least one image"), check_url_format])
   url2 = StringField("url2", validators=[check_url_format])

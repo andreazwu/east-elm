@@ -10,7 +10,7 @@ const MyProduct = ({ product }) => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false)
 
   return (
-    <div className="myproduct-wrapper" key={product.id}>
+    <div className="myproduct-wrapper">
 
       <div className="myproduct-img">
         <Link to={`/products/${product.id}`}>

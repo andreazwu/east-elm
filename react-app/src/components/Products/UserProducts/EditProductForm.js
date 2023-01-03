@@ -1,4 +1,4 @@
-import React, { useState, useSelector, useEffect } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { thunkUpdateProduct } from "../../../store/product"
 
@@ -34,7 +34,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
     const response = await dispatch(thunkUpdateProduct(product.id, productinfo))
     if (response) setErrors(response)
     else {
-      setErrors([])
+      reset()
       setShowEditModal(false)
     }
   }
@@ -50,6 +50,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
     // setUrl2("")
     // setUrl3("")
     // setUrl4("")
+    setErrors([])
     setHasSubmitted(false)
   }
 

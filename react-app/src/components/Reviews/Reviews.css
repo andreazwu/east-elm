@@ -1,23 +1,39 @@
-* {
-  /* font-family: 'Kohinoor Devanagari', sans-serif; */
-  font-family: 'Maven Pro', sans-serif;
-  color: rgb(47, 47, 47);
+/* ---------Hover Stars--------- */
+input[type="radio"]{
+  display: none;
 }
 
-.product-image {
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  margin-right: 1px;
+
+}
+
+.prod-star {
+  margin-bottom: -3px;
+}
+
+.stars-wrapper {
+  margin-left: 5px;
+  margin-top: -12px;
+}
+
+/* --------------------------- */
+.review-image {
   width: 100%;
   height: auto;
   max-height: 400px;
   max-width: 400px;
 }
 
-.product-image img {
+.review-image img {
   width: 400px;
   height: 400px;
   object-fit: cover;
 }
 
-.myproducts-cover {
+.myreviews-cover {
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -25,7 +41,7 @@
   justify-content: flex-start;
 }
 
-.myproducts-title-wrapper {
+.myreviews-title-wrapper {
   width: 100%;
   height: 100px;
   display: flex;
@@ -33,7 +49,7 @@
   background-color: white;
 }
 
-.myproducts-title {
+.myreviews-title {
   width: 100%;
   max-width: 896px;
   display: flex;
@@ -43,11 +59,11 @@
   padding-top: 10px;
 }
 
-.myproducts-title h2 {
+.myreviews-title h2 {
   padding-left: 10px;
 }
 
-.myproducts-list-button {
+.myreviews-list-button {
   text-decoration: none;
   height: 40px;
   width: 260px;
@@ -60,12 +76,12 @@
   font: bold;
 }
 
-.myproducts-list-button:hover {
+.myreviews-list-button:hover {
   background: rgb(124, 124, 124);
   border: 1px rgb(124, 124, 124) solid;
 }
 
-.myproduct-list-wrapper {
+.myreview-list-wrapper {
   width: 100%;
   height: auto;
   overflow: auto;
@@ -75,7 +91,7 @@
   padding-top: 20px;
 }
 
-.myproduct-list {
+.myreview-list {
   width: 100%;
   max-width: 900px;
   display: flex;
@@ -84,7 +100,7 @@
   align-items: flex-start;
 }
 
-.myproduct-wrapper {
+.myreview-wrapper {
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -95,58 +111,61 @@
   width: 100%;
 }
 
-.myproduct-img {
+.myreview-img {
   width: 200px;
   height: 180px;
   /* margin: 0 15px 0 0; */
   overflow: hidden;
 }
 
-.myproduct-img img {
+.myreview-img img {
   width: 100%;
   height: auto;
 
 }
 
-.myproduct-info {
+.myreview-info {
   width: 48%;
   height: auto;
   max-height: 100%;
   font-size: 16px;
   padding-left: 15px;
 }
-.myproduct-info a {
+.myreview-info a {
   text-decoration: none;
   color: rgb(47, 47, 47);
 }
-.myproduct-name {
+.myreview-title {
   font-size: 20px;
-  padding: 20px 15px;
+  padding: 10px 15px;
 }
-.myproduct-category {
-  color: gray;
+.myreview-stars {
   padding: 0px 15px;
-  margin-top: -10px;
+  /* margin-top: 0px; */
 }
-.myproduct-price {
+.star-gray {
+  color: rgb(228, 228, 228);
+}
+.myreview-content {
   font-size: 16px;
   padding: 20px 15px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.myproduct-buttons-container {
+.myreview-buttons-container {
   width: 25%;
   height: auto;
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 28px;
   align-items: center;
   gap: 1rem;
 }
 
 
-.myproduct-edit {
+.myreview-edit {
   /* font-size: 14px; */
   cursor: pointer;
   width: 150px;
@@ -158,11 +177,11 @@
   color: white;
   font: bold;
 }
-.myproduct-edit:hover {
+.myreview-edit:hover {
   background: rgb(124, 124, 124);
   border: 1px rgb(124, 124, 124) solid;
 }
-.myproduct-delete {
+.myreview-delete {
   /* font-size: 14px; */
   cursor: pointer;
   width: 150px;
@@ -174,7 +193,7 @@
   color: rgb(0, 0, 0);
   font: bold;
 }
-.myproduct-delete:hover {
+.myreview-delete:hover {
   background: rgb(196, 196, 196);
   border: 1px rgb(196, 196, 196) solid;
   color: white;
@@ -182,7 +201,7 @@
 
 
 
-.user-no-product {
+.user-no-review {
   height: 70vh;
   font-size: 14px;
 }

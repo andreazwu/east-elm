@@ -183,12 +183,12 @@ const productReducer = (state = initialState, action) => {
       return newState
     case UPDATE_PRODUCT:
       newState = {...state}
-      newState.singleProduct = action.product
+      // newState.singleProduct = action.product
       newState.myProducts[action.product.id] = action.product
       return newState
     case DELETE_PRODUCT:
       newState = {...state, allProducts:{...state.allProducts}, myProducts:{...state.myProducts}, singleProduct:{...state.singleProduct}}
-      delete newState.allProducts[action.productid]
+      // delete newState.allProducts[action.productid]
       delete newState.myProducts[action.productid]
       if (newState.singleProduct.id === action.productid) newState.singleProduct = {}
       return newState
