@@ -8,16 +8,27 @@ import noimage from "../Images/noimage.jpg"
 const ProductDetail = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
+  const user = useSelector((state) => state.session.user)
   const product = useSelector((state) => state.products.singleProduct)
+  console.log("product from useSelector:", product)
   const reviewsArr = useSelector((state) => Object.values(state.reviews.product))
-  console.log("reviews from useSelector:", reviewsArr)
+  console.log("reviewsArr from useSelector:", reviewsArr)
   const [isLoaded, setIsLoaded] = useState(false)
+
+  let seller = false
+  if (user?.id === product?.sellerId) seller = true
+
+  let hasReviewed = false
+  let reviewers = []
+  reviewsArr.forEach((rev) => reviewers.push(rev.User.id))
+  if (reviewers.includes(user?.id)) hasReviewed = true
+
 
   useEffect(() => {
     dispatch(thunkLoadOneProduct(id))
-      .then(() => dispatch(thunkGetProductReviews(id)))
       .then(() => setIsLoaded(true))
-  }, [dispatch, id])
+      .then(() => dispatch(thunkGetProductReviews(id)))
+  }, [dispatch, id, reviewsArr.length])
 
   if (isLoaded && !Object.values(product).length) {
     return <Redirect to="/pagenotfound" />
@@ -25,17 +36,17 @@ const ProductDetail = () => {
 
   return (
     <>
-      {/* <div>
-        {product.Reviews && (
-          product.Reviews.map((rev) => (
-            <div key={rev.id}>
-              <p>{rev.stars}</p>
-              <p>{rev.title}</p>
-              <p>{rev.content}</p>
-            </div>
-          ))
-        )}
-      </div> */}
+      {/* only show "create review" button to logged in user/ who has not left a review/ NON-seller */}
+      {console.log("user:", user, "seller:", seller, "hasReviewed:", hasReviewed)}
+      <div>
+          {
+          user &&
+          !seller &&
+          !hasReviewed &&
+          <button>can leave review</button>
+
+          }
+      </div>
       <div>
         {reviewsArr.length > 0 && (
           reviewsArr.map((rev) => (

@@ -141,7 +141,7 @@ def get_product_reviews(id):
     return {"errors": [f"product id {id} could not be found"]}, 404
 
 # add new review for a specific product
-@product_routes.route("/<int:id>", methods=["POST"])
+@product_routes.route("/<int:id>/reviews", methods=["POST"])
 @login_required
 def create_review(id):
   form = ReviewForm()
