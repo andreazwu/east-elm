@@ -51,6 +51,10 @@ nav {
   background-color: rgb(171, 191, 191);
 }
 
+.login-text {
+  color: black;
+}
+
 .navBar-link-icon {
   display: flex;
   align-items: center;

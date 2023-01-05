@@ -30,11 +30,25 @@ const NavBar = () => {
           ) : (
             <>
               <div className="navBar-link sign-in">
-                <i className="fa-regular fa-user"></i>
-                &nbsp;
-                <NavLink exact to="/login" style={{ textDecoration: "none" }}>
-                  Log In
-                </NavLink>
+                <div className="navbar-profile-button">
+                  <i className="fa-regular fa-user"></i>
+                  <NavLink
+                    className="login-text"
+                    exact
+                    to="/login"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    &nbsp; Log In
+                  </NavLink>
+                  <NavLink
+                    className="login-text"
+                    exact
+                    to="/signup"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    &nbsp;| Sign Up
+                  </NavLink>
+                </div>
               </div>
             </>
           )}

@@ -39,7 +39,6 @@
 }
 
 .profile-name {
-  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   color: #222222;
   margin-left: 14px;
   margin-bottom: -5px;
@@ -58,7 +57,6 @@
 }
 
 .my-reviews {
-  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 15px;
   margin-left: 14px;
   color: black;
@@ -66,7 +64,6 @@
 
 .my-products,
 .sign-out {
-  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 15px;
   margin-left: 10px;
   color: black;

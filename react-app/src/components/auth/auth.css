@@ -1,11 +1,12 @@
 .logout-wrap {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 .logout-btn {
   text-decoration: none;
   height: 30px;
-  width: 160px;
+  width: 190px;
   cursor: pointer;
   border: 1px black solid;
   border-radius: 1px;
