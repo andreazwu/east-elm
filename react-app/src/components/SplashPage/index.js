@@ -87,11 +87,11 @@ function SplashPage() {
       </Link>
 
       {/* <Link to="/products" className="gif-wrap"> */}
-      <iframe
+      {/* <iframe
         src="https://player.vimeo.com/video/780872938?h=b65fb5e3bf&amp;loop=1&amp;background=1&amp;autoplay=true"
         frameborder="0"
         className="spring-lookbook-gif"
-      ></iframe>
+      ></iframe> */}
       {/* </Link> */}
     </div>
   );
