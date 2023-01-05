@@ -186,3 +186,28 @@
   height: 70vh;
   font-size: 14px;
 }
+
+
+/* ---------product details page------- */
+
+.detail-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.detail-left {
+  width: 200vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  padding: 0px 20px;
+}
+
+.detail-img {
+  width: 100%;
+  max-width: auto;
+  margin-bottom: 8px;
+}

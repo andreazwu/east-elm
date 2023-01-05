@@ -6,6 +6,7 @@ import { thunkGetProductReviews } from "../../store/review"
 import { Modal } from "../../context/Modal"
 import CreateReviewForm from "../Reviews/UserReviews/CreateReviewForm"
 import noimage from "../Images/noimage.jpg"
+import "./Products.css"
 
 const ProductDetail = () => {
   const dispatch = useDispatch()
@@ -40,64 +41,74 @@ const ProductDetail = () => {
 
   return (
     <>
-      {/* only show "create review" button to logged in user/ who has not left a review/ NON-seller */}
-      {console.log("user:", user, "seller:", seller, "hasReviewed:", hasReviewed)}
-      <div>
-          {
-          user &&
-          !seller &&
-          !hasReviewed && (
-            <>
-            <button className="create-review-button"
-            onClick={()=>setShowAddReviewModal(true)}>
-              can leave review
-            </button>
-            <div>
-            {showAddReviewModal && (
-              <Modal onClose={()=>setShowAddReviewModal(false)}>
-                <CreateReviewForm
-                  setShowAddReviewModal={setShowAddReviewModal}
-                  productId={id}
-                />
-              </Modal>
-            )}
-            </div>
-            </>
-          )}
-      </div>
-      <div>
-        {reviewsArr.length > 0 && (
-          reviewsArr.reverse().map((rev) => (
-            <div key={rev.id}>
-              <p>{rev.User.firstName} {rev.User.lastName}</p>
-              <p>{rev.stars}</p>
-              <p>{rev.title}</p>
-              <p>{rev.content}</p>
-            </div>
-          ))
-        )}
-      </div>
-      <div>
-        {product.Images && (
-          product.Images.map((image) => (
-              <img key={image.id} src={image.url}
-                alt='detail-page-product-showcase'
-                onError={e => e.target.src = {noimage}} />
-          ))
-        )}
-      </div>
 
-      <div>{product.name}</div>
-      <div>${Number(product.price).toFixed(2)}</div>
-      <div>{product.description}</div>
-      <div>
-        {product.details && (
-          <ul>
-            {product.details.split(".").map((point,i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
-        )}
+
+
+
+      <div className="detail-main">
+        <div className="detail-left">
+          {product.Images && (
+            product.Images.map((image) => (
+                <img key={image.id} src={image.url}
+                  className="detail-img"
+                  alt='detail-page-product-showcase'
+                  onError={e => e.target.src = {noimage}} />
+            ))
+          )}
+        </div>
+
+        <div className="detail-right">
+          <div>{product.name}</div>
+          <div>${Number(product.price).toFixed(2)}</div>
+          <div>{product.description}</div>
+          <div>
+            {product.details && (
+              <ul>
+                {product.details.split(".").map((point,i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div>
+            {reviewsArr.length > 0 && (
+              reviewsArr.reverse().map((rev) => (
+                <div key={rev.id}>
+                  <p>{rev.User.firstName} {rev.User.lastName}</p>
+                  <p>{rev.stars}</p>
+                  <p>{rev.title}</p>
+                  <p>{rev.content}</p>
+                </div>
+              ))
+            )}
+          </div>
+          {/* only show "create review" button to logged in user/ who has not left a review/ NON-seller */}
+          {console.log("user:", user, "seller:", seller, "hasReviewed:", hasReviewed)}
+          <div>
+              {
+              user &&
+              !seller &&
+              !hasReviewed && (
+                <>
+                <button className="create-review-button"
+                onClick={()=>setShowAddReviewModal(true)}>
+                  can leave review
+                </button>
+                <div>
+                {showAddReviewModal && (
+                  <Modal onClose={()=>setShowAddReviewModal(false)}>
+                    <CreateReviewForm
+                      setShowAddReviewModal={setShowAddReviewModal}
+                      productId={id}
+                    />
+                  </Modal>
+                )}
+                </div>
+                </>
+              )}
+          </div>
+        </div>
       </div>
     </>
   )

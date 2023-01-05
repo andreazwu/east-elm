@@ -1,0 +1,174 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cozy-season-sec {
+  height: auto;
+  width: 100%;
+  max-width: 1680px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: swap 7s infinite;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes swap {
+  0% {
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202234/0051/drayton-recycled-glass-8-light-chandelier-z.jpg);
+  }
+
+  33% {
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202224/0169/carmel-square-arm-upholstered-sofa-z.jpg);
+  }
+
+  67% {
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202213/0318/carmel-square-arm-upholstered-sofa-z.jpg);
+  }
+
+  100% {
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202234/0051/drayton-recycled-glass-8-light-chandelier-z.jpg);
+  }
+}
+
+.living-room-essentials {
+  height: auto;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.cozy-season-sec > p {
+  color: rgb(255, 255, 255);
+  font-family: "Georgia", serif;
+  font-size: 60px;
+  font-weight: lighter;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  position: relative;
+  top: -50px;
+}
+
+.cozy-season-sec a {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  font-size: 13px;
+  padding: 7px 0;
+  box-sizing: border-box;
+}
+
+.first-subtitle {
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  margin: 20px 0;
+  padding-top: 50px;
+}
+
+.homepage-subtitle {
+  width: 100%;
+  max-width: 1680px;
+  height: auto;
+}
+
+.serene-sofa,
+.decorating-pot,
+.makeover {
+  max-width: 1680px;
+  width: 100%;
+  height: auto;
+}
+
+.two-bedding,
+.throw-cabinet,
+.two-dining {
+  display: flex;
+  flex-direction: row;
+  max-width: 1680px;
+  width: 100%;
+  height: auto;
+}
+
+.two-bedding img,
+.throw-cabinet img,
+.two-halloween img,
+.two-dining img {
+  width: 50%;
+}
+
+.dream-bedroom,
+.bath-upgrade {
+  display: flex;
+  flex-direction: row;
+  max-width: 1680px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.dream-bedroom {
+  margin-top: 60px;
+}
+
+.dream-bedroom .left,
+.bath-upgrade .left {
+  width: 75%;
+  height: auto;
+  margin-right: 10px;
+}
+
+.dream-bedroom .left img,
+.bath-upgrade .left img {
+  width: 100%;
+  height: auto;
+}
+
+.dream-bedroom .right,
+.bath-upgrade .right {
+  width: 25%;
+}
+
+.dream-bedroom .right img,
+.bath-upgrade .right img {
+  width: 100%;
+  height: auto;
+}
+
+/* .gif-wrap a {
+  width: 100%;
+  height: 100%;
+  display: inline;
+  position: absolute;
+  top: 800vh;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.gif-wrap {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+} */
+
+.spring-lookbook-gif {
+  width: 100%;
+  height: 100%;
+  display: inline;
+  position: absolute;
+  top: 815vh;
+  z-index: 2;
+  /* cursor: pointer; */
+}
