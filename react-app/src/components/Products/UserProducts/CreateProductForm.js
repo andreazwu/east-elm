@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { thunkCreateProduct } from "../../../store/product";
 import "../Products.css";
 
@@ -24,7 +24,7 @@ const CreateProductForm = () => {
   const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
-    if (!user) setErrors(["You must be logged in to list a product"]);
+    if (!user) setErrors(["user: You must be logged in to list a product"]);
   }, [user]);
 
   const handleSubmit = async (e) => {
@@ -77,6 +77,9 @@ const CreateProductForm = () => {
   ];
 
   // const color_choices = ["Grays", "Browns", "Neutrals", "Whites", "Black", "Multi"]
+  if (!user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="login-page-cover">
