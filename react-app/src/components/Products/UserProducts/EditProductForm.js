@@ -81,6 +81,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
   return (
     <div>
       <div>Edit a Product</div>
+      <form onSubmit={handleSubmit}>
       <div>
         {hasSubmitted &&
           errors &&
@@ -90,7 +91,6 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             </div>
           ))}
       </div>
-      <form onSubmit={handleSubmit}>
         <div className="product-form-element">
           <label>
             Name

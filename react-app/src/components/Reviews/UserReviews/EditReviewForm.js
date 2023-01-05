@@ -36,16 +36,16 @@ const EditReviewForm = ({ review, setShowEditReviewModal }) => {
   return (
     <div>
       <div>Edit a Review</div>
-      <div>
-        {hasSubmitted &&
-          errors &&
-          errors.map((error, ind) => (
-            <div key={ind} className="validation-errors">
-              {error.split(": ")[1]}
-            </div>
-          ))}
-      </div>
       <form onSubmit={handleSubmit}>
+        <div>
+          {hasSubmitted &&
+            errors &&
+            errors.map((error, ind) => (
+              <div key={ind} className="validation-errors">
+                {error.split(": ")[1]}
+              </div>
+            ))}
+        </div>
         <div>
           <label>
             Stars
