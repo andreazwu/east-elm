@@ -13,14 +13,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: swap 7s infinite;
+  animation: swap 10s infinite;
   background-position: center;
   background-size: cover;
 }
 
 @keyframes swap {
   0% {
-    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202242/2352/099/060.jpg);
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202253/1645/001/002.jpg);
   }
 
   33% {
