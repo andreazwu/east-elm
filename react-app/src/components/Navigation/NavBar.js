@@ -23,7 +23,7 @@ const NavBar = () => {
         <div className="icon-wrap">
           {user ? (
             <>
-              <div className="navBar-link-profile">
+              <div className="navBar-link">
                 <ProfileButton user={user} />
               </div>
             </>
