@@ -1,40 +1,50 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import { Link, NavLink } from "react-router-dom"
-import LogoutButton from "../auth/LogoutButton"
-import logo from "../Images/logo.jpg"
-import "./Navigation.css"
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
+import LogoutButton from "../auth/LogoutButton";
+import logo from "../Images/logo.jpg";
+import "./Navigation.css";
 
 const NavBar = () => {
-  const user = useSelector((state) => state.session.user)
+  const user = useSelector((state) => state.session.user);
 
-  let sessionLinks
+  let sessionLinks;
   if (user) {
     sessionLinks = (
       <ul>
-        <li><Link to={`/users/${user.id}`}>My Account</Link></li>
-        <li><Link to={"/my-products"}>My Products</Link></li>
+        <li>
+          <Link to={`/users/${user.id}`}>My Account</Link>
+        </li>
+        <li>
+          <Link to={"/my-products"}>My Products</Link>
+        </li>
         {/* <li><Link to={"/my-orders"}>My Orders</Link></li> */}
-        <li><Link to={"/my-reviews"}>My Reviews</Link></li>
-        <li><LogoutButton /></li>
+        <li>
+          <Link to={"/my-reviews"}>My Reviews</Link>
+        </li>
+        <li>
+          <LogoutButton />
+        </li>
       </ul>
-    )
+    );
   } else {
     sessionLinks = (
       <ul>
-        <li><Link to={"/login"}>Log In</Link></li>
-        <li><Link to={"/sign-up"}>Sign Up</Link></li>
+        <li>
+          <Link to={"/login"}>Log In</Link>
+        </li>
+        <li>
+          <Link to={"/signup"}>Sign Up</Link>
+        </li>
       </ul>
-    )
+    );
   }
 
   return (
     <nav>
       <div>
         <NavLink exact to="/" activeClassName="active">
-          <div className="navBar-home">
-            <img src={logo} alt="logo" className="logo"/>
-          </div>
+          <img src={logo} alt="logo" className="logo" />
         </NavLink>
       </div>
 
@@ -42,15 +52,9 @@ const NavBar = () => {
         <div>
           <i className="fa-regular fa-user"></i>
           &nbsp;
-          {
-            user ?
-            "Account" :
-            "Log In/ Sign Up"
-          }
+          {user ? "Account" : "Log In/ Sign Up"}
         </div>
-        <div>
-          {sessionLinks}
-        </div>
+        <div>{sessionLinks}</div>
       </div>
 
       <ul className="navbar">
@@ -72,7 +76,7 @@ const NavBar = () => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

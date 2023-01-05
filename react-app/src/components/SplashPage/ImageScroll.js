@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ImageScroll.css";
 
-function ImageScroll() {
+const ImageScroll = () => {
   const scrolll = () => {
     var left = document.querySelector(".scroll-images");
     left.scrollBy(-350, 0);
@@ -77,6 +77,6 @@ function ImageScroll() {
       </div>
     </div>
   );
-}
+};
 
 export default ImageScroll;

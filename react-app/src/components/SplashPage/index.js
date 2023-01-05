@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import ImageScroll from "./ImageScroll";
 import "./SplashPage.css";
 
-function SplashPage() {
+const SplashPage = () => {
   return (
     <div className="main-page">
-      <div className="cozy-season-sec">
+      <div className="main-swap-bg">
         <p>Your Perfect Home</p>
         <Link to="/products">Shop Now</Link>
       </div>
@@ -95,6 +95,6 @@ function SplashPage() {
       {/* </Link> */}
     </div>
   );
-}
+};
 
 export default SplashPage;

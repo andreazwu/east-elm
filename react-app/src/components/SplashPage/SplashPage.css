@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.cozy-season-sec {
+.main-swap-bg {
   height: auto;
   width: 100%;
   max-width: 1680px;
@@ -15,25 +15,24 @@
   align-items: center;
   animation: swap 7s infinite;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
 @keyframes swap {
   0% {
-    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202234/0051/drayton-recycled-glass-8-light-chandelier-z.jpg);
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202242/2352/099/060.jpg);
   }
 
   33% {
-    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202224/0169/carmel-square-arm-upholstered-sofa-z.jpg);
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202242/2352/093/204.jpg);
   }
 
   67% {
-    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202213/0318/carmel-square-arm-upholstered-sofa-z.jpg);
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202253/1659/001/003.jpg);
   }
 
   100% {
-    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202234/0051/drayton-recycled-glass-8-light-chandelier-z.jpg);
+    background-image: url(https://assets.pbimgs.com/pbimgs/rk/images/dp/ecm/202253/1645/001/002.jpg);
   }
 }
 
@@ -43,7 +42,7 @@
   max-width: 1680px;
 }
 
-.cozy-season-sec > p {
+.main-swap-bg > p {
   color: rgb(255, 255, 255);
   font-family: "Georgia", serif;
   font-size: 60px;
@@ -54,7 +53,7 @@
   top: -50px;
 }
 
-.cozy-season-sec a {
+.main-swap-bg a {
   text-decoration: none;
   background-color: black;
   color: white;
