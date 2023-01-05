@@ -23,18 +23,32 @@ const NavBar = () => {
         <div className="icon-wrap">
           {user ? (
             <>
-              <div className="navBar-link-profile">
+              <div className="navBar-link">
                 <ProfileButton user={user} />
               </div>
             </>
           ) : (
             <>
               <div className="navBar-link sign-in">
-                <i className="fa-regular fa-user"></i>
-                &nbsp;
-                <NavLink exact to="/login" style={{ textDecoration: "none" }}>
-                  Log In
-                </NavLink>
+                <div className="navbar-profile-button">
+                  <i className="fa-regular fa-user"></i>
+                  <NavLink
+                    className="login-text"
+                    exact
+                    to="/login"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    &nbsp; Log In
+                  </NavLink>
+                  <NavLink
+                    className="login-text"
+                    exact
+                    to="/signup"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    &nbsp;| Sign Up
+                  </NavLink>
+                </div>
               </div>
             </>
           )}

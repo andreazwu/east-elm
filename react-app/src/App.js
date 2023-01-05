@@ -14,6 +14,7 @@ import MyProducts from "./components/Products/UserProducts/MyProducts";
 import CreateProductForm from "./components/Products/UserProducts/CreateProductForm";
 import MyReviews from "./components/Reviews/UserReviews/MyReviews";
 import PageNotFound from "./components/PageNotFound";
+import Footer from "./components/Navigation/Footer";
 
 import { authenticate } from "./store/session";
 
@@ -70,6 +71,7 @@ function App() {
           <PageNotFound />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
