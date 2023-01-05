@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/session";
-import { NavLink } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
+import { signUp, login } from "../../store/session";
+import "./auth.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -26,73 +26,89 @@ const SignUpForm = () => {
     }
   };
 
+  const demoUser = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login("demo@user.io", "dimidue"));
+    if (data) {
+      setErrors(data);
+    }
+  };
+
   if (user) {
     return <Redirect to="/" />;
   }
 
   return (
-    <>
-      <form onSubmit={onSignUp}>
-        <div>
-          {errors.map((error, i) => (
-            <div key={i}>{error}</div>
-          ))}
+    <div className="login-page-cover">
+      <div className="login-page-content">
+        <div className="login-page-title">
+          <h3>Welcome!</h3>
+          <p>Please create a new account.</p>
         </div>
-        <div>
-          <label>First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-          ></input>
+        <form onSubmit={onSignUp}>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind} className="validation-errors">
+                {error.split(": ")[1]}
+              </div>
+            ))}
+          </div>
+          <div className="signup-form-element">
+            <label>First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+            ></input>
+          </div>
+          <div className="signup-form-element">
+            <label>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+            ></input>
+          </div>
+          <div className="signup-form-element">
+            <label>Email</label>
+            <input
+              type="text"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            ></input>
+          </div>
+          <div className="signup-form-element">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            ></input>
+          </div>
+          <div className="signup-form-element">
+            <label>Repeat Password</label>
+            <input
+              type="password"
+              name="repeat_password"
+              onChange={(e) => setRepeatPassword(e.target.value)}
+              value={repeatPassword}
+            ></input>
+          </div>
+          <div className="form-element-button">
+            <button type="submit">Sign Up</button>
+            <button onClick={demoUser}>DEMO USER</button>
+          </div>
+        </form>
+        <div className="login-page-signup">
+          <span>Already a member?</span>
+          <NavLink to="/login">Click here to log in</NavLink>
         </div>
-        <div className="form-element">
-          <label>Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type="password"
-            name="repeat_password"
-            onChange={(e) => setRepeatPassword(e.target.value)}
-            value={repeatPassword}
-          ></input>
-        </div>
-        {console.log(firstName, lastName, email, password)}
-        <button type="submit">Sign Up</button>
-      </form>
-      <div>
-        Already a member?
-        <NavLink to="/login">
-          <div>Click here to log in</div>
-        </NavLink>
       </div>
-    </>
+    </div>
   );
 };
 
