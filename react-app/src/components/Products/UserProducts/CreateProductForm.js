@@ -70,11 +70,15 @@ const CreateProductForm = () => {
   return (
     <div>
       <div>List a New Product</div>
-      <div className="validation-errors">
+      <div>
         {
         hasSubmitted &&
         errors &&
-        errors?.map((error, i)=>(<div key={i}>{error}</div>))
+        errors.map((error, ind) => (
+          <div key={ind} className="validation-errors">
+            {error.split(": ")[1]}
+          </div>
+        ))
         }
       </div>
       <form onSubmit={handleSubmit}>

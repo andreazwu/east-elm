@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
-import { NavLink } from "react-router-dom";
+import "./auth.css";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -32,43 +32,52 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        <button onClick={demoUser}>DEMO USER</button>
-      </div>
+    <div className="login-page-cover">
+      <div className="login-page-content">
+        <div className="login-page-title">
+          <h3>Welcome back!</h3>
+          <p>Please log in with your email.</p>
+        </div>
+        <form onSubmit={onLogin}>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind} className="validation-errors">
+                {error.split(": ")[1]}
+              </div>
+            ))}
+          </div>
+          <div className="form-element">
+            <label htmlFor="email">Email</label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-element">
+            <label htmlFor="password">Password</label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="form-element-button">
+              <button type="submit">Log In</button>
+              <button onClick={demoUser}>DEMO USER</button>
+            </div>
+          </div>
 
-      <div>
-        Don't have an account?
-        <NavLink to="/signup">
-          <div>Click here to sign up</div>
-        </NavLink>
+          <div className="login-page-signup">
+            <span>Don't have an account?</span>
+            <NavLink to="/signup">Click here to sign up</NavLink>
+          </div>
+        </form>
       </div>
-
-    </form>
+    </div>
   );
 };
 

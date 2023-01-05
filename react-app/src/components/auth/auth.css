@@ -19,3 +19,107 @@
   background: rgb(124, 124, 124);
   border: 1px rgb(124, 124, 124) solid;
 }
+
+.validation-errors {
+  list-style: none;
+  font-size: 14px;
+  color: red;
+}
+
+.login-page-cover {
+  width: 100%;
+  min-height: 120vh;
+  display: flex;
+  justify-content: center;
+}
+
+.login-page-content {
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px;
+}
+
+.login-page-title {
+  display: flex;
+  flex-direction: column;
+  width: 512px;
+  justify-content: flex-start;
+  height: 60px;
+  margin-bottom: -5px;
+}
+
+.login-page-title h3 {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 0;
+}
+
+.login-page-title p {
+  font-size: 14px;
+}
+
+form {
+  width: 512px;
+  height: auto;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-errors {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-element {
+  font-size: 14px;
+  color: #222;
+  margin: 20px 0 0 0;
+}
+
+.form-element input[type="text"],
+.form-element input[type="password"] {
+  margin-top: 5px;
+  height: 55px;
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgb(1, 1, 1);
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0 15px;
+  margin: 10px 0 0 0;
+}
+
+.form-element-button button {
+  text-decoration: none;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+  border: 1px black solid;
+  border-radius: 1px;
+  background: black;
+  color: white;
+  font: bold;
+  margin-top: 20px;
+}
+
+.form-element-button button:hover {
+  background: rgb(124, 124, 124);
+  border: 1px rgb(124, 124, 124) solid;
+}
+
+.login-page-signup {
+  margin: 40px 0 0 0;
+  font-size: 14px;
+}
+
+.login-page-signup a {
+  margin-left: 5px;
+}
