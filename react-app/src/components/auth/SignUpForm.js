@@ -20,6 +20,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Repeat Password: Please Confirm Your Password"])
     }
   };
 
@@ -77,7 +79,6 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
-          required={true}
         ></input>
       </div>
       {console.log(firstName, lastName, email, password)}
