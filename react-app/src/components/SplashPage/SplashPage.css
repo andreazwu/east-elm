@@ -142,8 +142,8 @@
   width: 100%;
   height: auto;
 }
-
-/* .gif-wrap a {
+/*
+.gif-wrap a {
   width: 100%;
   height: 100%;
   display: inline;
@@ -151,28 +151,23 @@
   top: 800vh;
   z-index: 2;
   cursor: pointer;
-}
-
-.gif-wrap {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 20;
 } */
 
-.spring-lookbook-gif {
-  width: 96%;
-  height: 96%;
-  display: inline;
-
-  position: absolute;
+.gif-wrap {
+  position: relative;
   top: 815vh;
+  left: 0;
+}
+
+.spring-lookbook-gif {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 700%;
+
   /* top: 5840px; */
 
-  z-index: 2;
+  /* z-index: 2; */
 
   cursor: pointer;
 }
