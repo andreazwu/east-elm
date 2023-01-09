@@ -286,3 +286,30 @@ input[type="radio"] {
   background: rgb(124, 124, 124);
   border: 1px rgb(124, 124, 124) solid;
 }
+
+.review-form-delete-btn {
+  text-decoration: none;
+  width: 120px;
+  height: 29px;
+  margin: 10px 20px;
+  cursor: pointer;
+  border: 1px black solid;
+  border-radius: 1px;
+  background: black;
+  color: white;
+  font: bold;
+}
+
+.review-form-delete-btn:hover {
+  background: red;
+  border: 1px red solid;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-form-wrapper {
+  padding: 20px 60px;
+}
