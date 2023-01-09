@@ -308,24 +308,319 @@ button.product-form-btn {
 }
 /* ---------product details page------- */
 
+.create-review-button {
+  text-decoration: none;
+  width: 120px;
+  height: 29px;
+  margin: 10px 20px;
+  cursor: pointer;
+  border: 1px black solid;
+  border-radius: 1px;
+  background: black;
+  color: white;
+  font: bold;
+}
+
+.create-review-button:hover {
+  background: rgb(124, 124, 124);
+  border: 1px rgb(124, 124, 124) solid;
+}
+
+.detail-cover {
+  width: 100%;
+  height: auto;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  color: rgb(1, 1, 1);
+}
+
 .detail-main {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .detail-left {
-  width: 200vw;
+  /* width: 500vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0px 15px 15px 0;
   overflow: auto;
-  padding: 0px 20px;
+  object-fit: cover; */
+  width: 665px;
+  padding: 0 1.5rem;
 }
 
-.detail-img {
+/* .detail-left .detail-img {
   width: 100%;
   max-width: auto;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
+  overflow: hidden;
+} */
+
+/* .product-image-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 1rem;
+}
+.product-preview-image-outer {
+  width: 60px;
+  height: 55px;
+}
+.product-preview-image {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+.product-preview-image:hover {
+  cursor: pointer;
+  border: 1px solid rgb(195, 194, 194);
+  box-shadow: 0 0 8px #bdbdbd;
+}
+.product-main-image-outer {
+  width: 35rem;
+  height: 30rem;
+  margin: 0 8px;
+}
+.product-main-image {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.detail-page-cover {
+  width: 100%;
+  height: auto;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  color: rgb(1, 1, 1);
+}
+
+.detail-page-frame {
+  width: 98%;
+  max-width: 1440px;
+  margin-top: 30px;
+}
+
+.detail-page-back-to-category {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  padding: 20px 15px 15px 0;
+}
+
+.detail-page-back-to-category .fa-chevron-left {
+  font-size: 9px;
+  background-color: rgb(245, 244, 242);
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-page-back-to-category a {
+  font-size: 14px;
+  background-color: rgb(245, 244, 242);
+  width: auto;
+  height: 20px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.detail-page-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.detail-page-left-panel {
+  width: 59%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 15px 15px 0;
+  overflow: auto;
+}
+
+.detail-page-left-panel .detail-page-img {
+  width: 100%;
+  max-width: auto;
+  margin-bottom: 5px;
+}
+
+.detail-page-right-panel {
+  width: 39%;
+  min-height: 500px;
+  max-height: 2000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 15px;
+  /* position: sticky; */
+  top: 200px;
+}
+
+.detail-page-product-name {
+  margin: 0 0 4px 0;
+  font-size: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 300;
+  line-height: 30px;
+  overflow-wrap: anywhere;
+}
+
+.detail-page-price {
+  margin: 10px 0px;
+  font-size: 16px;
+}
+
+.detail-page-price-favor {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.detail-page-product-price {
+  font-size: 18px;
+  margin: 13px 0 30px 0;
+}
+
+.detail-page-purchase-quantity {
+  width: 100%;
+  border-top: 1px solid rgb(207, 202, 193);
+  padding: 30px 0px;
+}
+
+.detail-page-purchase-quantity button {
+  width: 42px;
+  height: 42px;
+  background-color: rgb(245, 244, 242);
+  border: 1px solid rgb(207, 202, 193);
+  cursor: pointer;
+}
+
+.detail-page-purchase-quantity input {
+  width: 42px;
+  height: 42px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid rgb(207, 202, 193);
+}
+
+.detail-page-purchase-quantity input::-webkit-outer-spin-button,
+.detail-page-purchase-quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 22px 0;
+  cursor: pointer;
+}
+
+.detail-page-description-title,
+.detail-page-dimensions-title,
+.detail-page-review-sec-title {
+  width: 100%;
+  height: 46px;
+  font-size: 14px;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 12px 0 12px 28px;
+  background-color: rgb(245, 244, 242);
+  border: none;
+  border-top: 1px solid rgb(207, 202, 193);
+  border-bottom: 1px solid rgb(207, 202, 193);
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.detail-page-review-sec-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.review-section-title-rating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+  gap: 0.3rem;
+  font-weight: 100;
+}
+
+.review-section-unfold-sign {
+  font-size: 25px;
+  font-weight: 100;
+  margin-right: 15px;
+}
+
+.detail-page-description {
+  margin: 8px 8px 0px 28px;
+  font-size: 14px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+.detail-page-bullet-points,
+.detail-page-dimensions {
+  margin: 8px 8px 0px 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.detail-page-price-favor .favor-confirmation-window {
+  position: fixed;
+  left: 0;
+  top: 170px;
+  z-index: 100000;
+}
+
+.detail-page-review-rating {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.detail-page-review-rating p {
+  font-size: 14px;
+  text-decoration: underline;
 }
