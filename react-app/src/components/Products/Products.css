@@ -624,3 +624,59 @@ button.product-form-btn {
   font-size: 14px;
   text-decoration: underline;
 }
+
+.review-menu-review-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 0 20px;
+}
+
+.review-menu-ind-review {
+  border: 2px solid #222;
+  border-width: 0 0 2px 0;
+  margin-bottom: 10px;
+  padding: 0;
+  box-sizing: border-box;
+  float: left;
+  position: relative;
+  width: 95%;
+}
+
+.review-item-title {
+  margin: 16px 0 8px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.review-item-content {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: bolder;
+  line-height: 20px;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+
+.review-item-stars {
+  margin-top: 20px;
+}
+
+.review-item-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  font-size: 15px;
+}
+
+.review-item-user p {
+  margin: 10px 0;
+  color: rgb(170, 170, 169);
+}

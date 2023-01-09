@@ -46,12 +46,13 @@ const ProductDetail = () => {
     return <Redirect to="/pagenotfound" />;
   }
 
-  // reviewsArr.reverse().map((rev) => (
-  //   <div key={rev.id}>
-  //     <p>
-  //       {rev.User.firstName} {rev.User.lastName}
-  //     </p>
-  //     <p>{rev.stars}</p>
+  const convertDate = (dateString) => {
+    const date = new Date(dateString);
+    const month = date.toLocaleString("default", { month: "long" });
+    const day = date.getDate();
+    const yr = date.getFullYear();
+    return `${month} ${day} ${yr}`;
+  };
 
   return (
     <div className="detail-page-cover">
@@ -114,16 +115,26 @@ const ProductDetail = () => {
                 )}
               </span>
             </p>
-            <div>
+            <div className="review-menu-review-list">
               {reviewsArr.length > 0 &&
                 reviewsArr.reverse().map((rev) => (
-                  <div key={rev.id}>
-                    <p>
-                      {rev.User.firstName} {rev.User.lastName}
-                    </p>
-                    <p>{rev.stars}</p>
-                    <p>{rev.title}</p>
-                    <p>{rev.content}</p>
+                  <div className="review-menu-ind-review" key={rev.id}>
+                    <div className="review-item-stars">
+                      <span>
+                        {[...Array(rev.stars)].map((star) => (
+                          <i className="fa-solid fa-star"></i>
+                        ))}
+                        {[...Array(5 - rev.stars)].map((star) => (
+                          <i class="fa fa-star-o" aria-hidden="true"></i>
+                        ))}
+                      </span>
+                    </div>
+                    <p className="review-item-title">{rev.title}</p>
+                    <p className="review-item-content">{rev.content}</p>
+                    <div className="review-item-user">
+                      <p>By {rev.User.firstName}, </p>
+                      <p>{convertDate(rev.createdAt)}</p>
+                    </div>
                   </div>
                 ))}
             </div>
