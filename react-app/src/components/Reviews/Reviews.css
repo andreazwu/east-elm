@@ -1,5 +1,5 @@
 /* ---------Hover Stars--------- */
-input[type="radio"]{
+input[type="radio"] {
   display: none;
 }
 
@@ -7,17 +7,16 @@ input[type="radio"]{
   cursor: pointer;
   transition: color 200ms;
   margin-right: 1px;
-
 }
 
 .prod-star {
   margin-bottom: -3px;
 }
 
-.stars-wrapper {
+/* .stars-wrapper {
   margin-left: 5px;
   margin-top: -12px;
-}
+} */
 
 /* --------------------------- */
 .review-image {
@@ -121,7 +120,6 @@ input[type="radio"]{
 .myreview-img img {
   width: 100%;
   height: auto;
-
 }
 
 .myreview-info {
@@ -164,7 +162,6 @@ input[type="radio"]{
   gap: 1rem;
 }
 
-
 .myreview-edit {
   /* font-size: 14px; */
   cursor: pointer;
@@ -199,9 +196,120 @@ input[type="radio"]{
   color: white;
 }
 
-
-
 .user-no-review {
   height: 70vh;
   font-size: 14px;
+}
+
+/* ------------------ */
+.review-form-wrapper {
+  padding: 20px;
+}
+
+.review-validation-errors {
+  list-style: none;
+  font-size: 14px;
+  color: red;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+.review-form-title {
+  display: flex;
+  flex-direction: column;
+  width: 512px;
+  justify-content: flex-start;
+  height: 60px;
+  margin-bottom: -5px;
+  margin-top: -10px;
+}
+
+.review-form-title h3 {
+  font-size: 24px;
+  font-weight: 200;
+  margin-left: 20px;
+}
+
+.review-form-element {
+  border-top: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.review-form-element label {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px 0 0;
+}
+
+.review-form-element select,
+.review-form-element input,
+.review-form-element textarea {
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid rgb(1, 1, 1);
+}
+
+.review-form-element select {
+  margin-top: 5px;
+  height: 40px;
+  width: 101.5%;
+  display: block;
+  outline: none;
+  border: 1px solid rgb(1, 1, 1);
+  box-sizing: border-box;
+  font-size: 15px;
+  margin: 10px 0 0 0;
+}
+
+.review-form-element textarea {
+  height: 100px;
+  padding-top: 5px;
+}
+
+.review-form-element input {
+  height: 30px;
+}
+
+.review-form-btn {
+  text-decoration: none;
+  width: 120px;
+  height: 29px;
+  margin: 10px 20px;
+  cursor: pointer;
+  border: 1px black solid;
+  border-radius: 1px;
+  background: black;
+  color: white;
+  font: bold;
+}
+
+.review-form-btn:hover {
+  background: rgb(124, 124, 124);
+  border: 1px rgb(124, 124, 124) solid;
+}
+
+.review-form-delete-btn {
+  text-decoration: none;
+  width: 120px;
+  height: 29px;
+  margin: 10px 20px;
+  cursor: pointer;
+  border: 1px black solid;
+  border-radius: 1px;
+  background: black;
+  color: white;
+  font: bold;
+}
+
+.review-form-delete-btn:hover {
+  background: red;
+  border: 1px red solid;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-form-wrapper {
+  padding: 20px 60px;
 }

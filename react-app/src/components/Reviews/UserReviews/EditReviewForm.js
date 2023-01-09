@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkEditReview } from "../../../store/review";
 import HoverStars from "./HoverStars";
+import "../Reviews.css";
 
 const EditReviewForm = ({ review, setShowEditReviewModal }) => {
   const dispatch = useDispatch();
@@ -34,22 +35,25 @@ const EditReviewForm = ({ review, setShowEditReviewModal }) => {
   };
 
   return (
-    <div>
-      <div>Edit a Review</div>
+    <div className="review-form-wrapper">
+      <div className="review-form-title">
+        <h3>Edit a Review</h3>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div>
           {hasSubmitted &&
             errors &&
             errors.map((error, ind) => (
-              <div key={ind} className="validation-errors">
+              <div key={ind} className="review-validation-errors">
                 {error.split(": ")[1]}
               </div>
             ))}
         </div>
-        <div>
+        <div className="review-form-element">
           <label>
             Stars
-            {/* <HoverStars stars={stars} setStars={setStars} /> */}
+            {/* <HoverStars stars={editStars} setStars={setEditStars} /> */}
             <input
               name="stars"
               type="number"
@@ -69,7 +73,7 @@ const EditReviewForm = ({ review, setShowEditReviewModal }) => {
             />
           </label>
         </div>
-        <div className="review-form-element review-form-description">
+        <div className="review-form-element">
           <label>
             Content
             <textarea
