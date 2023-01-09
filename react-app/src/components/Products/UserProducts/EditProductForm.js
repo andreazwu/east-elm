@@ -79,19 +79,22 @@ const EditProductForm = ({ product, setShowEditModal }) => {
   ];
 
   return (
-    <div>
-      <div>Edit a Product</div>
-      <form onSubmit={handleSubmit}>
-      <div>
-        {hasSubmitted &&
-          errors &&
-          errors.map((error, ind) => (
-            <div key={ind} className="validation-errors">
-              {error.split(": ")[1]}
-            </div>
-          ))}
+    <div className="review-form-wrapper">
+      <div className="review-form-title">
+        <h3>Edit a Product</h3>
       </div>
-        <div className="product-form-element">
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          {hasSubmitted &&
+            errors &&
+            errors.map((error, ind) => (
+              <div key={ind} className="review-validation-errors">
+                {error.split(": ")[1]}
+              </div>
+            ))}
+        </div>
+        <div className="review-form-element">
           <label>
             Name
             {/* <span className="required">(required)</span> */}
@@ -103,7 +106,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        <div className="review-form-element">
           <label>
             Category
             {/* <span className="required">(required)</span> */}
@@ -120,7 +123,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             </select>
           </label>
         </div>
-        <div className="product-form-element product-form-description">
+        <div className="review-form-element">
           <label>
             Description
             {/* <span className="required">(required)</span> */}
@@ -130,7 +133,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        <div className="review-form-element">
           <label>
             Price
             {/* <span className="required">(required)</span> */}
@@ -141,10 +144,9 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        {/* <div className="review-form-element">
           <label>
             Colors
-            {/* <span className="required">(required)</span> */}
             <select
               name="colors"
               value={colors}
@@ -158,18 +160,17 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             </select>
           </label>
         </div>
-        <div className="product-form-element product-form-description">
+        <div className="review-form-element product-form-description">
           <label>
             Details
-            {/* <span className="required">(required)</span> */}
             <textarea
               placeholder='Optional. Separate bullet points by a single period "."'
               value={details}
               onChange={(e) => setDetails(e.target.value)}
             />
           </label>
-        </div>
-        {/* <div className="product-form-element">
+        </div> */}
+        {/* <div className="review-form-element">
           <label> Image 1
             <input className='addImage-input'
                 type="text"
@@ -178,7 +179,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        <div className="review-form-element">
           <label> Image 2
             <input className='addImage-input'
                 type="text"
@@ -188,7 +189,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        <div className="review-form-element">
           <label> Image 3
             <input className='addImage-input'
                 type="text"
@@ -198,7 +199,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
             />
           </label>
         </div>
-        <div className="product-form-element">
+        <div className="review-form-element">
           <label> Image 4
             <input className='addImage-input'
                 type="text"
@@ -209,7 +210,7 @@ const EditProductForm = ({ product, setShowEditModal }) => {
           </label>
         </div> */}
 
-        <button className="product-form-btn" type="submit">
+        <button className="review-form-btn" type="submit">
           EDIT PRODUCT
         </button>
       </form>
