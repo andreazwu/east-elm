@@ -111,6 +111,9 @@ const ProductDetail = () => {
                     {[...Array(avgStars)].map((star) => (
                       <i className="fa-solid fa-star"></i>
                     ))}
+                    {[...Array(5 - avgStars)].map((star) => (
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                    ))}
                   </span>
                 )}
               </span>
