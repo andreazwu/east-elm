@@ -26,30 +26,41 @@ East Elm is a full-stack e-commerce site inspired by West Elm. Users can browse 
 * [Frontend Routes](https://github.com/andreazwu/east-elm/wiki/Frontend-Routes)
 
 ## Landing Page
-
+![image](https://user-images.githubusercontent.com/17817050/211336649-e2d42a61-dff4-4912-8fa7-c394679acb0f.png)
+![image](https://user-images.githubusercontent.com/17817050/211336815-9a26ee20-4e58-4bc6-a05e-441ac2809a53.png)
 
 ## Sign In/ Sign Up
+![image](https://user-images.githubusercontent.com/17817050/211336941-2e680213-0462-4ab4-ae6c-31998454ad83.png)
+![image](https://user-images.githubusercontent.com/17817050/211337003-a73041a6-6d5e-4a5d-92d4-469bfcd33a9e.png)
 
 
 ## Profile Menu
+![image](https://user-images.githubusercontent.com/17817050/211337056-b12fbbb1-0ce9-4aba-9410-5d3300e666f8.png)
 
 
 ## Products Page
+![image](https://user-images.githubusercontent.com/17817050/211337180-37836aeb-9450-4a9a-aa1d-e323c8701b7e.png)
 
 
 ## View Product Details
+![image](https://user-images.githubusercontent.com/17817050/211337493-11ec8761-0cf0-45e3-878b-a0781c91d476.png)
 
 
 ## Add New Products and Upload Images
+![image](https://user-images.githubusercontent.com/17817050/211337661-d68f2679-1fce-4381-8c9b-4bd1e4c67f28.png)
 
 
 ## Manage My Products
+![image](https://user-images.githubusercontent.com/17817050/211337846-a3c08bce-67f6-49f8-bbaa-04a7f1a644cc.png)
 
 
 ## Add Reviews
+![image](https://user-images.githubusercontent.com/17817050/211338836-753399c0-0445-43da-86fe-9bbbfaadfda8.png)
+![image](https://user-images.githubusercontent.com/17817050/211338880-de91dae7-7940-4695-b4d4-7c8076fc9e4d.png)
 
 
 ## Manage My Reviews
+![image](https://user-images.githubusercontent.com/17817050/211338652-74d09e5a-eb5b-4b4f-af43-42dcb09014d6.png)
 
 
 ## Steps to clone locally:
