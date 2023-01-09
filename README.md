@@ -1,4 +1,5 @@
 # Welcome to East Elm!
+<img src="https://user-images.githubusercontent.com/17817050/208506888-470b7e57-45e7-48cb-bd4a-d1186544761d.jpg" width=300px></img>
 
 Live Site: [East Elm](https://east-elm.onrender.com/)
 
@@ -102,9 +103,17 @@ npm start
 
 
 
-## Contact Info:
+## My Contact Info:
 
 ### Andrea Wu
+[![Linkedin][linkedin-color]][andrea-linkedin]
+[![GitHub][GitHub-color]][andrea-GitHub]
 
-[LinkedIn](https://www.linkedin.com/in/andreazwu/) || [GitHub](https://github.com/andreazwu)
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-color]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
+[andrea-linkedin]: https://www.linkedin.com/in/andreazwu/
+[GitHub-color]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+[andrea-GitHub]: https://github.com/andreazwu
 
